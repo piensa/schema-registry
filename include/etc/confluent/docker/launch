@@ -33,5 +33,8 @@ if [  $SCHEMA_REGISTRY_JMX_PORT ]; then
 export SCHEMA_REGISTRY_JMX_OPTS="$SCHEMA_REGISTRY_JMX_OPTS -Djava.rmi.server.hostname=$SCHEMA_REGISTRY_JMX_HOSTNAME -Dcom.sun.management.jmxremote.local.only=false -Dcom.sun.management.jmxremote.rmi.port=$JMX_PORT -Dcom.sun.management.jmxremote.port=$JMX_PORT"
 fi
 
+
+cat /etc/"${COMPONENT}"/"${COMPONENT}".properties
+
 echo "===> Launching ${COMPONENT} ... "
 exec "${COMPONENT}"-start /etc/"${COMPONENT}"/"${COMPONENT}".properties
